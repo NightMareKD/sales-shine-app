@@ -1,0 +1,251 @@
+/* Dashboard Container */
+.dashboard {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+    font-size: 32px;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.dashboard-header p {
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+/* Dashboard Grid (Two Columns) */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.dashboard-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Top Items List */
+.top-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.top-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.top-item:hover {
+    transform: translateX(5px);
+    background: #e9ecef;
+}
+
+.item-rank {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.item-details {
+    flex: 1;
+}
+
+.item-name {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 3px;
+}
+
+.item-category {
+    font-size: 12px;
+    color: #7f8c8d;
+    text-transform: uppercase;
+}
+
+.item-stats {
+    text-align: right;
+}
+
+.item-quantity {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin-bottom: 3px;
+}
+
+.item-revenue {
+    font-size: 18px;
+    font-weight: bold;
+    color: #27ae60;
+}
+
+/* Category Breakdown */
+.breakdown-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.breakdown-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.breakdown-name {
+    width: 100px;
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 14px;
+}
+
+.breakdown-bar {
+    flex: 1;
+    height: 30px;
+    background: #e9ecef;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.breakdown-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3498db 0%, #2ecc71 100%);
+    transition: width 0.5s ease;
+}
+
+.breakdown-value {
+    width: 100px;
+    text-align: right;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Recent Sales */
+.recent-sales-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.recent-sale-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    border-left: 3px solid #3498db;
+    transition: all 0.2s ease;
+}
+
+.recent-sale-item:hover {
+    background: #e9ecef;
+    transform: translateX(3px);
+}
+
+.sale-date {
+    width: 80px;
+    font-size: 12px;
+    color: #7f8c8d;
+}
+
+.sale-info {
+    flex: 1;
+}
+
+.sale-item {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 3px;
+}
+
+.sale-details {
+    font-size: 12px;
+    color: #7f8c8d;
+}
+
+.sale-total {
+    font-size: 16px;
+    font-weight: bold;
+    color: #27ae60;
+}
+
+/* Payment Methods Grid */
+.payment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.payment-card {
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.payment-card:hover {
+    transform: translateY(-5px);
+}
+
+.payment-method {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.payment-count {
+    font-size: 12px;
+    opacity: 0.9;
+    margin-bottom: 8px;
+}
+
+.payment-total {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}

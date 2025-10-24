@@ -1,0 +1,74 @@
+{
+  "name": "clothing-sales-tracker",
+  "version": "1.0.0",
+  "description": "Desktop app for tracking clothing business sales",
+  "main": "src/main/main.js",
+  "scripts": {
+    "webpack": "webpack --watch",
+    "start": "electron .",
+    "dev": "webpack && electron .",
+    "build:win": "webpack --mode production && electron-builder --win",
+    "build:mac": "webpack --mode production && electron-builder --mac"
+  },
+  "keywords": [
+    "electron",
+    "sales",
+    "tracker"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "@electron/remote": "^2.1.3",
+    "better-sqlite3": "^12.4.1",
+    "date-fns": "^4.1.0",
+    "exceljs": "^4.4.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.5",
+    "@babel/preset-env": "^7.28.5",
+    "@babel/preset-react": "^7.28.5",
+    "babel-loader": "^10.0.0",
+    "css-loader": "^7.1.2",
+    "electron": "^27.0.0",
+    "electron-builder": "^24.6.4",
+    "electron-rebuild": "^3.2.9",
+    "html-webpack-plugin": "^5.6.4",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.102.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
+  },
+  "build": {
+    "appId": "com.sales.shine",
+    "productName": "Sales_SHINE",
+    "copyright": "Copyright © 2025",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "dist/**/*",
+      "src/**/*",
+      "public/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "public/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Sales_SHINE"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "public/icon.icns",
+      "category": "public.app-category.business"
+    }
+  }
+}
