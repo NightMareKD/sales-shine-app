@@ -9,29 +9,31 @@ on:
 jobs:
   build-mac:
     runs-on: macos-latest
-    
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '20.x'
           cache: 'npm'
-      
+
       - name: Install dependencies
         run: npm ci
-      
-      - name: Build webpack
-        run: npx webpack --mode production
-      
+
+      - name: Rebuild native modules for Electron
+        # Rebuild native modules (e.g. better-sqlite3) for the Electron runtime used by electron-builder
+        run: npx electron-rebuild -f -w better-sqlite3
+
       - name: Build Mac app
-        run: npx electron-builder --mac
+        # Use the script defined in package.json to ensure consistent build steps
+        run: npm run build:mac
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
+
       - name: Upload Mac installer
+        if: ${{ success() }}
         uses: actions/upload-artifact@v4
         with:
           name: Sales_SHINE-Mac
