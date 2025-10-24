@@ -23,9 +23,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
       
-      - name: Rebuild native modules
-        run: npx electron-rebuild
-      
       - name: Build webpack
         run: npx webpack --mode production
       

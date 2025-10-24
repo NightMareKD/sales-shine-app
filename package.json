@@ -67,7 +67,6 @@
     },
     "mac": {
       "target": "dmg",
-      "icon": "public/icon.icns",
       "category": "public.app-category.business"
     }
   }
