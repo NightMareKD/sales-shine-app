@@ -12,15 +12,16 @@ jobs:
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'  # Updated to LTS version
+          cache: 'npm'
       
       - name: Install dependencies
-        run: npm install
+        run: npm ci  # Using npm ci for cleaner, reproducible installs
       
       - name: Build webpack
         run: npx webpack --mode production
@@ -37,3 +38,4 @@ jobs:
           path: |
             dist/*.dmg
             dist/*.zip
+          retention-days: 30
